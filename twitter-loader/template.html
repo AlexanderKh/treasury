@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Backup</title>
+    <meta charset="utf-8"/>
+</head>
+<body>
+  <table border="1">
+    {% for item in items %}
+      <tr>
+        <td>{{ item['id'] }}</td>
+        <td>{{ item['created_at'].strftime('%c') }}</td>
+        <td>{{ item['text'] }}</td>
+        <td>
+          {% for attachment in item['attachments'] %}
+            <img src="{{ attachment }}" style='max-height: 300px' />
+          {% endfor %}
+        </td>
+      </tr>
+    {% endfor %}
+  </table>
+</body>
+</html>
